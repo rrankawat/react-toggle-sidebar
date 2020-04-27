@@ -10,13 +10,14 @@ import {
   NavbarText,
 } from 'reactstrap';
 
-const Content = ({ toggleSidebar, showText }) => {
+const Content = ({ toggleSidebar, showText, menuClose }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
   const change = () => {
     toggleSidebar();
     showText();
+    menuClose();
   };
 
   return (

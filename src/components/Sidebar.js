@@ -1,7 +1,8 @@
 import React from 'react';
 import { FaDesktop, FaDiceD6, FaWeight } from 'react-icons/fa';
+import { Collapse } from 'reactstrap';
 
-const Sidebar = ({ sidebarOpen, display }) => {
+const Sidebar = ({ sidebarOpen, display, menuOpen, toggleMenu }) => {
   return (
     <div className={`sidebar ${sidebarOpen ? '' : 'sidebar-collapse'}`}>
       <h4 className="m-auto text-center py-3">D{sidebarOpen && 'ashboard'}</h4>
@@ -22,10 +23,23 @@ const Sidebar = ({ sidebarOpen, display }) => {
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="#" onClick={toggleMenu}>
             <FaWeight size={15} />
-            {display && <span className="ml-2">Dashboard</span>}
+            {display && <span className="ml-2">Toggle ></span>}
           </a>
+          <Collapse isOpen={menuOpen}>
+            <ul className="list-unstyled ml-4">
+              <li>
+                <a to="#">Link 1</a>
+              </li>
+              <li>
+                <a to="#">Link 2</a>
+              </li>
+              <li>
+                <a to="#">Link 3</a>
+              </li>
+            </ul>
+          </Collapse>
         </li>
       </ul>
     </div>

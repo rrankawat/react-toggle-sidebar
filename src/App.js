@@ -9,6 +9,7 @@ import './App.css';
 const App = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [display, setDisplay] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const showText = () => {
     if (display) {
@@ -20,15 +21,23 @@ const App = () => {
     }
   };
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const menuClose = () => setMenuOpen(false);
 
   return (
     <div className="App">
       <div className="wrapper">
-        <Sidebar sidebarOpen={sidebarOpen} display={display} />
+        <Sidebar
+          sidebarOpen={sidebarOpen}
+          display={display}
+          menuOpen={menuOpen}
+          toggleMenu={toggleMenu}
+        />
         <Content
           sidebarOpen={sidebarOpen}
           toggleSidebar={toggleSidebar}
           showText={showText}
+          menuClose={menuClose}
         />
       </div>
     </div>
