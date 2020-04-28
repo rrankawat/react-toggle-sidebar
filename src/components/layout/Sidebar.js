@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaDesktop, FaDiceD6, FaWeight } from 'react-icons/fa';
 import { Collapse } from 'reactstrap';
 
@@ -11,22 +12,22 @@ const Sidebar = ({ sidebarOpen, display, menuOpen, toggleMenu }) => {
 
       <ul className="sidebar-list">
         <li>
-          <a href="#">
+          <Link to="/">
             <FaDiceD6 size={17} />
-            {display && <span className="ml-2">Log Management</span>}
-          </a>
+            {display && <span className="ml-2">Home</span>}
+          </Link>
         </li>
         <li>
-          <a href="#">
+          <Link to="/about">
             <FaDesktop size={15} />
-            {display && <span className="ml-2">Visualization</span>}
-          </a>
+            {display && <span className="ml-2">About Us</span>}
+          </Link>
         </li>
         <li>
-          <a href="#" onClick={toggleMenu}>
+          <Link to="#" onClick={toggleMenu}>
             <FaWeight size={15} />
             {display && <span className="ml-2">Toggle ></span>}
-          </a>
+          </Link>
           <Collapse isOpen={menuOpen}>
             <ul className="list-unstyled ml-4">
               <li>
